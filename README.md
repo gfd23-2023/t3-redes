@@ -33,7 +33,6 @@ A Codificação Hamming é um corretor de erros para garantir a precisão dos da
 A detecção de erros considera os bits de paridade **juntamente** com os bits de dados. Caso todos os novos bits devolvidos sejam zeros, então não há erro. Quando houver erro, a verificação da paridade irá retornar o índice da posição que contém o erro, basta, então, inverter o bit indicado por ela.
 
 ### Funções
-- `escrevePosicao`: Escreve as posições dos bits em formato binário (1 até 31)
 - `marcaPosicoes`: Deixa vazia as posições dos bits de redundância e preenche com os dados as demais posições
 - `calculaParidade`: Conta quantos 1's existem no conjunto de bits estipulado pelo X-ésimo bit menos significativo. Retorna um arquivo .hamming
 - `decodificaHamming`: Recebe um arquivo codificado .hamming e calcula a paridade levando em conta os bits de redundância. Em caso de 1 erro, corrije. Para dois ou mais erros, devolve uma mensagem: `Não foi possível detectar e corrigir os erros`. Devolve o arquivo decodificado em caso de sucesso.
@@ -42,3 +41,15 @@ A detecção de erros considera os bits de paridade **juntamente** com os bits d
 - `hamming31_26.h`: Contém os protótipos das funções usadas para codificar e decodificar os arquivos.
 - `hamming31_26.c`: Implementação dos protótipos de `hamming31_26.h`.
 - `hamming.c`: Código principal que codifica e decodifica o arquivo.
+
+### Posições dos Bits de Paridade
+
+BP1: `1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31`
+
+BP2: `2, 3, 6, 7, 10, 11, 14, 15, 18, 19, 22, 23, 26, 27, 30, 31`
+
+BP4: `4, 5, 6, 7, 12, 13, 14, 15, 20, 21, 22, 23, 28, 29, 30, 31`
+
+BP8: `8, 9, 10, 11, 12, 13, 14, 15, 24, 25, 26, 27, 28, 29, 30, 31`
+
+BP16: `16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31`
